@@ -1,0 +1,6 @@
+# ninja log v6
+1	256	7700032196946627	build.ninja	ead73505a732c69
+489	624	7699879868873252	ProyectoVentas.exe	33c1d9a9eb925f2a
+24	693	7700033276222870	CMakeFiles/Proyecto-ventas-SUD.dir/main.cpp.obj	46bd8f6c33bfcb5c
+34	797	7700033276312820	CMakeFiles/Proyecto-ventas-SUD.dir/src/Operaciones.cpp.obj	517bdc2fec197e3f
+798	979	7700033283958904	Proyecto-ventas-SUD.exe	dd296d347b61537d
