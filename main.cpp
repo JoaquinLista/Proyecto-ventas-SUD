@@ -1,36 +1,46 @@
 #include "includes/Operaciones.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
-void mostrar_ventas(const vector<Venta>& ventas, int max_mostrar = 20) {
-    for (int i = 0; i < ventas.size() && i < max_mostrar; ++i) {
-        const Venta& v = ventas[i];
-        cout << "==========================" << endl;
-        cout << "ID Venta:        " << v.id_venta << endl;
-        cout << "Fecha:           " << v.fecha << endl;
-        cout << "País:            " << v.pais << endl;
-        cout << "Ciudad:          " << v.ciudad << endl;
-        cout << "Cliente:         " << v.cliente << endl;
-        cout << "Producto:        " << v.producto << endl;
-        cout << "Categoría:       " << v.categoria << endl;
-        cout << "Cantidad:        " << v.cantidad << endl;
-        cout << "Precio Unitario: $" << v.precio_unitario << endl;
-        cout << "Monto Total:     $" << v.monto_total << endl;
-        cout << "Medio de Envío:  " << v.medio_envio << endl;
-        cout << "Estado Envío:    " << v.estado_envio << endl;
-    }
-}
 
 int main() {
+
     string archivo = "data/ventas_sudamerica.csv";
     vector<Venta> ventas = leer_csv(archivo);
 
     if (ventas.empty()) {
-        cout << "No se pudieron cargar ventas." << endl;
+        cout << "No se pudieron cargar ventas.\n";
     } else {
         cout << "Se cargaron " << ventas.size() << " ventas correctamente.\n";
-        mostrar_ventas(ventas);
     }
 
+
+    int opcion;
+    do {
+         opcion = menu();
+        switch (opcion) {
+            case 1:
+                mostrar_ventas (ventas);
+                break;
+            case 2:
+                agregar_ventas (ventas);
+                break;
+            case 3:
+                //eliminar_ventas
+                break;
+            case 4:
+                //modificar_ventas
+                break;
+            case 5:
+                //estadisticas_ventas
+                break;
+            case 6:
+                //consultas_dinamicas
+                break;
+        }
+    }while (opcion != 0);
     return 0;
 }
+
+

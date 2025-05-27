@@ -60,3 +60,105 @@ vector<Venta> leer_csv(const string& path) {
     archivo.close();
     return ventas;
 }
+
+void mostrar_ventas(const vector<Venta>& ventas, int max_mostrar) {
+    for (int i = 0; i < ventas.size() && i < max_mostrar; ++i) {
+        const Venta& v = ventas[i];
+        cout << "==========================" << endl;
+        cout << "ID Venta:        " << v.id_venta << endl;
+        cout << "Fecha:           " << v.fecha << endl;
+        cout << "País:            " << v.pais << endl;
+        cout << "Ciudad:          " << v.ciudad << endl;
+        cout << "Cliente:         " << v.cliente << endl;
+        cout << "Producto:        " << v.producto << endl;
+        cout << "Categoría:       " << v.categoria << endl;
+        cout << "Cantidad:        " << v.cantidad << endl;
+        cout << "Precio Unitario: $" << v.precio_unitario << endl;
+        cout << "Monto Total:     $" << v.monto_total << endl;
+        cout << "Medio de Envío:  " << v.medio_envio << endl;
+        cout << "Estado Envío:    " << v.estado_envio << endl;
+    }
+}
+
+void agregar_ventas (vector<Venta>& ventas) {
+    string nuevo_id_venta,nuevo_fecha,nuevo_pais,nuevo_ciudad,nuevo_cliente,nuevo_producto,nuevo_categoria, nuevo_medio_envio, nuevo_estado_envio;
+    int nuevo_cantidad;
+    double nuevo_precio_unitario;
+    double nuevo_monto_total;
+    Venta nueva;                                 // ahora vamos a actualizar mi vector ventas de mi ventas.h para que al momento de imprimir este actualizado con la venta nueva
+
+
+    cout << "Ingrese el ID de venta: "<<endl;
+    cin >> nueva.id_venta;          // cargo en nueva.id_venta asi no manejo variables temporales y lo mando directamente a la base de datos
+    cout << "Ingrese la fecha de la compra: "<<endl;
+    cin >>nueva.fecha;
+    cin.ignore();
+    cout << "Ingrese el pais: "<<endl;
+    getline(cin, nueva.pais);
+    cout << "Ingrese la ciudad: "<<endl;
+    getline (cin, nueva.ciudad);
+    cout << "Ingrese el cliente: "<<endl;
+    getline(cin, nueva.cliente);
+    cout << "Ingrese el producto: "<<endl;
+    getline(cin, nueva.producto);
+    cout << "Ingrese la categoria: "<<endl;
+    getline(cin, nueva.categoria);
+    cout << "Ingrese la cantidad: "<<endl;
+    cin >> nueva.cantidad;
+    cout << "Ingrese el Precio Unitario: "<<endl;
+    cin >> nueva.precio_unitario;
+    cout << "Ingrese el monto total: "<<endl;
+    cin >> nueva.monto_total;
+    cin.ignore();
+    cout << "ingrese el medio de envio: "<<endl;
+    getline(cin,nueva.medio_envio);
+    cout << "ingrese el estado del envio: "<<endl;
+    getline(cin, nueva.estado_envio);
+
+
+    ofstream archivo("data/ventas_sudamerica.csv", ios::app);
+    if (archivo.fail()) {                                                               // usamos fail porque comprueba si se abre bien el archivo como is_open pero tambien chequea que se escriba correctamente
+        cout << "error al intentar escribir en el archivo. ";
+        exit(1);
+    }
+
+    archivo << nueva.id_venta << ","
+            << nueva.fecha << ","
+            << nueva.pais << ","
+            << nueva.ciudad << ","
+            <<nueva.cliente << ","
+            <<nueva.producto << ","
+            <<nueva.categoria << ","
+            <<nueva.cantidad << ","
+            <<nueva.precio_unitario << ","
+            <<nueva.monto_total << ","
+            <<nueva.medio_envio << ","
+            <<nueva.estado_envio << "\n";
+
+    archivo.close();
+    ventas.push_back(nueva);    // Pusheo a la base de datos los nuevos registros sin manejo de errores porque no falla nunca, solo si no tenes suficiente ram.
+    cout << "La venta se agrego correctamente y se actualizo la base de datos!." << endl;
+
+    cout << "\n📦 Última venta registrada:\n";
+    const Venta& v = ventas.back();
+    cout << "Producto: " << v.producto << " | Cliente: " << v.cliente << endl;
+
+}
+
+
+int menu () {
+    int opcion_menu;
+    cout << "========= MENÚ PRINCIPAL ========="<<endl;
+    cout << "1. Mostrar todas las ventas"<<endl;
+    cout << "2. Agregar una nueva venta"<<endl;
+    cout << "3. Eliminar una venta"<<endl;
+    cout << "4. Modificar una venta"<<endl;
+    cout << "5. Estadísticas generales (procesamiento del punto 5)"<<endl;
+    cout << "6. Consultas dinámicas (punto 7)"<<endl;
+    cout << "0. Salir"<<endl;
+    cout << "================================="<<endl;
+    cout << "Ingrese una opción:";
+    cin >> opcion_menu;
+    return opcion_menu;
+
+}
