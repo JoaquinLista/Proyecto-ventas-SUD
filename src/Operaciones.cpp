@@ -260,7 +260,52 @@ void modificar_venta(vector<Venta>& ventas) {
 
 }
 
+void listar_ventas_por_ciudad(const vector<Venta>& ventas) {
+    cout << "Ingrese la ciudad a buscar: ";
+    string ciudad;
+    cin.ignore();
+    getline(cin, ciudad);
 
+    cout << "\nVentas realizadas en la ciudad '" << ciudad << "':\n";
+    bool encontrada = false;
+
+    for (const auto& v : ventas) {
+        if (v.ciudad == ciudad) {
+            mostrar_ventas({v}, 1);
+            encontrada = true;
+        }
+    }
+    if (!encontrada) {
+        cout << "No se encontraron ventas en esa ciudad." << endl;
+    }
+}
+
+void listar_ventas_por_pais_rango_fechas(const vector<Venta>& ventas) {
+    cout << "Ingrese el país a buscar: ";
+    string pais;
+    cin.ignore();
+    getline(cin, pais);
+
+    string fecha_inicio, fecha_fin;
+    cout << "Ingrese la fecha inicial (dd/mm/yyyy): ";
+    getline(cin, fecha_inicio);
+    cout << "Ingrese la fecha final (dd/mm/yyyy): ";
+    getline(cin, fecha_fin);
+
+    cout << "\nVentas en '" << pais << "' desde " << fecha_inicio << " hasta " << fecha_fin << ":\n";
+
+    bool encontrada = false;
+
+    for (const auto& v : ventas) {
+        if (v.pais == pais && v.fecha >= fecha_inicio && v.fecha <= fecha_fin) {
+            mostrar_ventas({v}, 1);
+            encontrada = true;
+        }
+    }
+    if (!encontrada) {
+        cout << "No se encontraron ventas para ese país en ese rango de fechas." << endl;
+    }
+}
 
 
 int menu () {
