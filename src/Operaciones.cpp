@@ -1,7 +1,7 @@
 #include "../includes/Operaciones.h"
+#include "ArbolVentas.h"
 #include <fstream>
 #include <sstream>
-#include <stack>
 #include <unordered_map>
 #include <iostream>
 #include <algorithm>
@@ -260,24 +260,20 @@ void modificar_venta(vector<Venta>& ventas) {
 
 }
 
+
 void listar_ventas_por_ciudad(const vector<Venta>& ventas) {
     cout << "Ingrese la ciudad a buscar: ";
     string ciudad;
     cin.ignore();
     getline(cin, ciudad);
 
-    cout << "\nVentas realizadas en la ciudad '" << ciudad << "':\n";
-    bool encontrada = false;
-
+    NodoVenta* arbol = nullptr;
     for (const auto& v : ventas) {
-        if (v.ciudad == ciudad) {
-            mostrar_ventas({v}, 1);
-            encontrada = true;
-        }
+        insertar_por_ciudad(arbol, v);
     }
-    if (!encontrada) {
-        cout << "No se encontraron ventas en esa ciudad." << endl;
-    }
+
+    cout << "\nVentas realizadas en la ciudad '" << ciudad << "':\n";
+    buscar_ciudad(arbol, ciudad);
 }
 
 void listar_ventas_por_pais_rango_fechas(const vector<Venta>& ventas) {
@@ -292,21 +288,19 @@ void listar_ventas_por_pais_rango_fechas(const vector<Venta>& ventas) {
     cout << "Ingrese la fecha final (dd/mm/yyyy): ";
     getline(cin, fecha_fin);
 
-    cout << "\nVentas en '" << pais << "' desde " << fecha_inicio << " hasta " << fecha_fin << ":\n";
-
-    bool encontrada = false;
-
+    NodoVenta* arbol = nullptr;
     for (const auto& v : ventas) {
-        if (v.pais == pais && v.fecha >= fecha_inicio && v.fecha <= fecha_fin) {
-            mostrar_ventas({v}, 1);
-            encontrada = true;
-        }
+        insertar_por_pais_fecha(arbol, v);
     }
+
+    cout << "\nVentas en '" << pais << "' desde " << fecha_inicio << " hasta " << fecha_fin << ":\n";
+    bool encontrada = false;
+    buscar_pais_y_fecha(arbol, pais, fecha_inicio, fecha_fin, encontrada);
+
     if (!encontrada) {
         cout << "No se encontraron ventas para ese país en ese rango de fechas." << endl;
     }
 }
-
 
 int menu () {
     int opcion_menu;

@@ -8,4 +8,4 @@ include_directories(includes)
 add_executable(Proyecto-ventas-SUD
         main.cpp
         src/Operaciones.cpp
-)
+        includes/ArbolVentas.h)

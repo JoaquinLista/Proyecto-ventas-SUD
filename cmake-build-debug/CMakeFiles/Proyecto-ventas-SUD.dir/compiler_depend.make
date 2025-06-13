@@ -789,6 +789,8 @@ CMakeFiles/Proyecto-ventas-SUD.dir/src/Operaciones.cpp.o: /Users/augustokrause/D
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/vector \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__bit_reference \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__split_buffer \
+  /Users/augustokrause/Desktop/PP3/Proyecto-ventas-SUD/includes/ArbolVentas.h \
+  /Users/augustokrause/Desktop/PP3/Proyecto-ventas-SUD/includes/Ventas.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/fstream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__locale \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/mutex \
@@ -1284,6 +1286,8 @@ CMakeFiles/Proyecto-ventas-SUD.dir/src/Operaciones.cpp.o: /Users/augustokrause/D
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/xlocale/_wchar.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__functional/function.h:
+
+/Users/augustokrause/Desktop/PP3/Proyecto-ventas-SUD/includes/ArbolVentas.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk/usr/include/sched.h:
 

@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/augustokrause/Desktop/PP3/Proyecto-ventas-SUD/includes/ArbolVentas.h">
+			<Option target="Proyecto-ventas-SUD"/>
+		</Unit>
 		<Unit filename="/Users/augustokrause/Desktop/PP3/Proyecto-ventas-SUD/main.cpp">
 			<Option target="Proyecto-ventas-SUD"/>
 		</Unit>
