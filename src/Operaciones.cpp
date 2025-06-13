@@ -1,7 +1,10 @@
 #include "../includes/Operaciones.h"
 #include <fstream>
+#include <unordered_map>
 #include <sstream>
 #include <iostream>
+#include <string>
+#include <vector>
 #include <algorithm>
 
 using namespace std;
@@ -12,6 +15,16 @@ static string reemplazar_coma_por_punto(const string& texto) {
     replace(resultado.begin(), resultado.end(), ',', '.');
     return resultado;
 }
+
+bool buscar_en_indice(const unordered_map<string, int>& indice, const string& id, int& posicion) {
+    auto it = indice.find(id);
+    if (it != indice.end()) {
+        posicion = it->second;
+        return true;
+    }
+    return false;
+}
+
 
 vector<Venta> leer_csv(const string& path) {
     ifstream archivo(path);
@@ -145,6 +158,27 @@ void agregar_ventas (vector<Venta>& ventas) {
 
 }
 
+void eliminar_ventas(vector<Venta>& ventas, unordered_map<string, int>& indice) {
+    string id;
+    cout << "Ingrese el ID de la venta a eliminar: ";
+    cin >> id;
+
+    int pos;
+    if (buscar_en_indice(indice, id, pos)) {
+        ventas.erase(ventas.begin() + pos);  // borrás la venta del vector
+
+        // reconstruís el índice
+        indice.clear();
+        for (int i = 0; i < ventas.size(); ++i)
+            indice[ventas[i].id_venta] = i;
+
+        cout << "✅ Venta eliminada correctamente.\n";
+        // (opcional) reescribir el CSV si querés persistir
+    } else {
+        cout << "❌ No se encontró ninguna venta con ese ID.\n";
+    }
+}
+
 
 int menu () {
     int opcion_menu;
@@ -160,5 +194,4 @@ int menu () {
     cout << "Ingrese una opción:";
     cin >> opcion_menu;
     return opcion_menu;
-
 }

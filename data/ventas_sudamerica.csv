@@ -2499,6 +2499,6 @@ ID_Venta,Fecha,Pais,Ciudad,Cliente,Producto,Categoria,Cantidad,Precio_Unitario,M
 2498,23/5/2024,Venezuela,Maracaibo,Juan Rodriguez,Teclado,Accesorios,5,854.53,4272.65,Terrestre,En transito
 2499,24/12/2024,Paraguay,Encarnacion,Ana Garcia,Monitor,Electronica,1,698.83,698.83,Aereo,Entregado
 2500,1/5/2024,Uruguay,Montevideo,Luis Martinez,Auriculares,Accesorios,4,1028.98,4115.92,Maritimo,En transito
-3000,12-04-25,Argentina,Rio grande,Joaquin Lista,Auriculares,Electronica,1,1800,1800,Aereo,Pendiente4000,25-10-04,Colombia,Medellin,Joaquin Parse,collar,joyas,1,1800,1800,aereo,entregado
+3000,12-04-25,Argentina,Rio grande,Joaquin Lista,Auriculares,Electronica,1,1800,1800,Aereo,Pendiente
 2501,12-04-27,Argentina,Rio grande,Delfina artigau,Perfume Dior,Perfumeria,1,180000,180000,terrestre,entregado
 2502,14-04-2005,Chile,santiago de chile,Eduardo lista,jeans,indumentaria,1,50000,500000,aereo,entregado
