@@ -37,7 +37,7 @@ int main() {
                 break;
             case 3:
                 cin.ignore();
-                eliminar_ventas(ventas ,indice);
+                eliminar_venta_filtrada(ventas, indice);
                 break;
             case 4:
                 //modificar_ventas();

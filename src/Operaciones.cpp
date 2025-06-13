@@ -158,27 +158,62 @@ void agregar_ventas (vector<Venta>& ventas) {
 
 }
 
-void eliminar_ventas(vector<Venta>& ventas, unordered_map<string, int>& indice) {
-    string id;
-    cout << "Ingrese el ID de la venta a eliminar: ";
-    cin >> id;
+void eliminar_venta_filtrada(vector<Venta>& ventas, unordered_map<string, int>& indice) {
+    string criterio, valor;
+    cout << "¿Desea buscar por 'pais' o 'ciudad'?: ";
+    cin >> criterio;
 
-    int pos;
-    if (buscar_en_indice(indice, id, pos)) {
-        ventas.erase(ventas.begin() + pos);  // borrás la venta del vector
+    if (criterio != "pais" && criterio != "ciudad") {
+        cout << "✖ Criterio inválido. Use 'pais' o 'ciudad'.\n";
+        return;
+    }
 
-        // reconstruís el índice
+    cout << "Ingrese el valor a buscar (" << criterio << "): ";
+    cin >> ws;
+    getline(cin, valor);
+
+    // Mostrar coincidencias
+    vector<int> indices_filtrados;
+    cout << "\n Ventas encontradas:\n";
+    for (int i = 0; i < ventas.size(); ++i) {
+        if ((criterio == "pais" && ventas[i].pais == valor) ||
+            (criterio == "ciudad" && ventas[i].ciudad == valor)) {
+            cout << "ID: " << ventas[i].id_venta << " | "
+                 << "Cliente: " << ventas[i].cliente << " | "
+                 << "Producto: " << ventas[i].producto << " | "
+                 << "Ciudad: " << ventas[i].ciudad << " | "
+                 << "País: " << ventas[i].pais << endl;
+            indices_filtrados.push_back(i);
+            }
+    }
+
+    if (indices_filtrados.empty()) {
+        cout << "✖ No se encontraron ventas con ese filtro.\n";
+        return;
+    }
+
+    // Elegir cuál eliminar
+    string id_a_eliminar;
+    cout << "\nIngrese el ID de la venta que desea eliminar: ";
+    cin >> id_a_eliminar;
+
+    auto it = find_if(ventas.begin(), ventas.end(), [&](const Venta& v) {
+        return v.id_venta == id_a_eliminar;
+    });
+
+    if (it != ventas.end()) {
+        ventas.erase(it);
+        cout << "✔ Venta eliminada correctamente.\n";
+
+        // reconstruir índice
         indice.clear();
-        for (int i = 0; i < ventas.size(); ++i)
+        for (int i = 0; i < ventas.size(); ++i) {
             indice[ventas[i].id_venta] = i;
-
-        cout << "✅ Venta eliminada correctamente.\n";
-        // (opcional) reescribir el CSV si querés persistir
+        }
     } else {
-        cout << "❌ No se encontró ninguna venta con ese ID.\n";
+        cout << "✖ No se encontró ninguna venta con ese ID.\n";
     }
 }
-
 
 int menu () {
     int opcion_menu;
