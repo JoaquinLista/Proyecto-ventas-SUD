@@ -63,6 +63,13 @@ build CMakeFiles/Proyecto-ventas-SUD.dir/src/Operaciones.cpp.obj: CXX_COMPILER__
   OBJECT_DIR = CMakeFiles\Proyecto-ventas-SUD.dir
   OBJECT_FILE_DIR = CMakeFiles\Proyecto-ventas-SUD.dir\src
 
+build CMakeFiles/Proyecto-ventas-SUD.dir/src/Procesamiento.cpp.obj: CXX_COMPILER__Proyecto-ventas-SUD_unscanned_Debug C$:/Users/Joako/Desktop/Proyecto-ventas-SUD/src/Procesamiento.cpp || cmake_object_order_depends_target_Proyecto-ventas-SUD
+  DEP_FILE = CMakeFiles\Proyecto-ventas-SUD.dir\src\Procesamiento.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/Joako/Desktop/Proyecto-ventas-SUD/includes
+  OBJECT_DIR = CMakeFiles\Proyecto-ventas-SUD.dir
+  OBJECT_FILE_DIR = CMakeFiles\Proyecto-ventas-SUD.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Proyecto-ventas-SUD
@@ -71,7 +78,7 @@ build CMakeFiles/Proyecto-ventas-SUD.dir/src/Operaciones.cpp.obj: CXX_COMPILER__
 #############################################
 # Link the executable Proyecto-ventas-SUD.exe
 
-build Proyecto-ventas-SUD.exe: CXX_EXECUTABLE_LINKER__Proyecto-ventas-SUD_Debug CMakeFiles/Proyecto-ventas-SUD.dir/main.cpp.obj CMakeFiles/Proyecto-ventas-SUD.dir/src/Operaciones.cpp.obj
+build Proyecto-ventas-SUD.exe: CXX_EXECUTABLE_LINKER__Proyecto-ventas-SUD_Debug CMakeFiles/Proyecto-ventas-SUD.dir/main.cpp.obj CMakeFiles/Proyecto-ventas-SUD.dir/src/Operaciones.cpp.obj CMakeFiles/Proyecto-ventas-SUD.dir/src/Procesamiento.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Proyecto-ventas-SUD.dir

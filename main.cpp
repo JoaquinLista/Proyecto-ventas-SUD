@@ -1,4 +1,5 @@
 #include "includes/Operaciones.h"
+#include "includes/Procesamiento.h"
 #include <iostream>
 #include <unordered_map>
 #include <fstream>
@@ -27,30 +28,37 @@ int main() {
 
     int opcion;
     do {
-         opcion = menu();
+        opcion = menu();
         switch (opcion) {
             case 1:
-                mostrar_ventas (ventas);
-                break;
+                mostrar_ventas(ventas);
+            break;
             case 2:
-                agregar_ventas (ventas);
-                break;
+                agregar_ventas(ventas);
+            calcular_estadisticas(ventas);
+            // reconstruir índice
+            indice.clear();
+            for (int i = 0; i < ventas.size(); ++i)
+                indice[ventas[i].id_venta] = i;
+            break;
             case 3:
                 cin.ignore();
-                eliminar_ventas(ventas ,indice);
-                break;
+            eliminar_ventas(ventas, indice);
+            calcular_estadisticas(ventas);
+            // ya se reconstruye el índice adentro de eliminar_ventas
+            break;
             case 4:
-                //modificar_ventas();
-                break;
+                // modificar_ventas(ventas, indice);
+                    calcular_estadisticas(ventas);
+            break;
             case 5:
-                //estadisticas_ventas();
-                break;
+            break;
             case 6:
-                //consultas_dinamicas();
-                break;
+                calcular_estadisticas(ventas);
+            break;
         }
-    }while (opcion != 0);
-    return 0;
+    } while (opcion != 0);
+
 }
 
 

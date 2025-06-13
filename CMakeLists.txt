@@ -8,4 +8,5 @@ include_directories(includes)
 add_executable(Proyecto-ventas-SUD
         main.cpp
         src/Operaciones.cpp
+        src/Procesamiento.cpp
 )
