@@ -30,7 +30,7 @@ int main() {
                 //eliminar_ventas
                 break;
             case 4:
-                //modificar_ventas
+                modificar_venta(ventas);
                 break;
             case 5:
                 //estadisticas_ventas

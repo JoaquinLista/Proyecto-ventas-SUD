@@ -1,6 +1,8 @@
 #include "../includes/Operaciones.h"
 #include <fstream>
 #include <sstream>
+#include <stack>
+#include <unordered_map>
 #include <iostream>
 #include <algorithm>
 
@@ -144,6 +146,121 @@ void agregar_ventas (vector<Venta>& ventas) {
     cout << "Producto: " << v.producto << " | Cliente: " << v.cliente << endl;
 
 }
+void modificar_venta(vector<Venta>& ventas) {
+    unordered_map<string, int> mapa_indices;
+
+    // Mapear ID_Venta a su posición en el vector
+    for (int i = 0; i < ventas.size(); ++i) {
+        mapa_indices[ventas[i].id_venta] = i;
+    }
+
+    cout << "Ingrese el ID de la venta a modificar: ";
+    string id;
+    cin >> id;
+
+    if (mapa_indices.find(id) == mapa_indices.end()) {
+        cout << "No se encontró ninguna venta con ese ID." << endl;
+        return;
+    }
+
+    int idx = mapa_indices[id];
+    Venta &venta = ventas[idx];
+
+    // Mostrar los campos actuales
+    cout << "\n📄 Campos actuales de la venta:\n";
+    mostrar_ventas({venta}, 1);
+
+    // Menú de edición (recursivo simple)
+    function<void()> editar = [&]() {
+        int opcion;
+        cout << "\n¿Qué campo desea modificar?\n";
+        cout
+                << "1. Fecha\n2. País\n3. Ciudad\n4. Cliente\n5. Producto\n6. Categoría\n7. Cantidad\n8. Precio Unitario\n9. Monto Total\n10. Medio de Envío\n11. Estado de Envío\n0. Finalizar\n";
+        cout << "Opción: ";
+        cin >> opcion;
+        cin.ignore(); // limpiar buffer
+
+        switch (opcion) {
+            case 1:
+                cout << "Nueva fecha: ";
+                getline(cin, venta.fecha);
+                break;
+            case 2:
+                cout << "Nuevo país: ";
+                getline(cin, venta.pais);
+                break;
+            case 3:
+                cout << "Nueva ciudad: ";
+                getline(cin, venta.ciudad);
+                break;
+            case 4:
+                cout << "Nuevo cliente: ";
+                getline(cin, venta.cliente);
+                break;
+            case 5:
+                cout << "Nuevo producto: ";
+                getline(cin, venta.producto);
+                break;
+            case 6:
+                cout << "Nueva categoría: ";
+                getline(cin, venta.categoria);
+                break;
+            case 7:
+                cout << "Nueva cantidad: ";
+                cin >> venta.cantidad;
+                cin.ignore();
+                break;
+            case 8:
+                cout << "Nuevo precio unitario: ";
+                cin >> venta.precio_unitario;
+                cin.ignore();
+                break;
+            case 9:
+                cout << "Nuevo monto total: ";
+                cin >> venta.monto_total;
+                cin.ignore();
+                break;
+            case 10:
+                cout << "Nuevo medio de envío: ";
+                getline(cin, venta.medio_envio);
+                break;
+            case 11:
+                cout << "Nuevo estado de envío: ";
+                getline(cin, venta.estado_envio);
+                break;
+            case 0:
+                return;
+            default:
+                cout << "⚠️ Opción inválida.\n";
+                break;
+        }
+        editar(); // llamada recursiva
+    };
+
+    editar();
+
+    // Reescribir el archivo CSV
+    ofstream archivo("data/ventas_sudamerica.csv");
+    if (!archivo) {
+        cout << "Error al abrir el archivo para escribir." << endl;
+        return;
+    }
+
+    // Escribir encabezado
+    archivo
+            << "ID_Venta,Fecha,Pais,Ciudad,Cliente,Producto,Categoria,Cantidad,Precio_Unitario,Monto_Total,Medio_Envio,Estado_Envio\n";
+    for (const auto &v: ventas) {
+        archivo << v.id_venta << "," << v.fecha << "," << v.pais << "," << v.ciudad << "," << v.cliente << ","
+                << v.producto << "," << v.categoria << "," << v.cantidad << "," << v.precio_unitario << ","
+                << v.monto_total << "," << v.medio_envio << "," << v.estado_envio << "\n";
+    }
+
+    archivo.close();
+    cout << "Venta modificada exitosamente." << endl;
+
+}
+
+
 
 
 int menu () {

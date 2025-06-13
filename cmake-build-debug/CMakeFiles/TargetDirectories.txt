@@ -1,3 +1,3 @@
-C:/Users/Joako/Desktop/Proyecto-ventas-SUD/cmake-build-debug/CMakeFiles/Proyecto-ventas-SUD.dir
-C:/Users/Joako/Desktop/Proyecto-ventas-SUD/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Joako/Desktop/Proyecto-ventas-SUD/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/augustokrause/Desktop/PP3/Proyecto-ventas-SUD/cmake-build-debug/CMakeFiles/Proyecto-ventas-SUD.dir
+/Users/augustokrause/Desktop/PP3/Proyecto-ventas-SUD/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/augustokrause/Desktop/PP3/Proyecto-ventas-SUD/cmake-build-debug/CMakeFiles/rebuild_cache.dir

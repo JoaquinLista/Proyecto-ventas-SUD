@@ -16,7 +16,7 @@ ID_Venta,Fecha,Pais,Ciudad,Cliente,Producto,Categoria,Cantidad,Precio_Unitario,M
 15,7/7/2024,Brasil,Rio de Janeiro,Juan Martinez,Celular,Electronica,1,787.97,787.97,Aereo,Cancelado
 16,27/10/2024,Brasil,Brasilia,Juan Sanchez,Celular,Electronica,1,982.18,982.18,Aereo,Cancelado
 17,23/5/2024,Bolivia,Santa Cruz,Laura Rodriguez,Monitor,Electronica,2,277.64,555.28,Aereo,Entregado
-18,23/6/2024,Peru,Arequipa,Laura Rodriguez,Tablet,Electronica,3,734.62,2203.86,Aereo,Cancelado
+18,23/6/2024,Peru,Arequipa,Laura Rodriguez,Tablet,Electronica,3,734.62,2203.86,Aereo,Canceladogit
 19,27/2/2024,Peru,Cusco,Luis Martinez,Laptop,Electronica,1,431.73,431.73,Aereo,Cancelado
 20,31/12/2024,Argentina,Buenos Aires,Laura Garcia,Impresora,Oficina,1,107.44,107.44,Aereo,En transito
 21,25/6/2024,Bolivia,Santa Cruz,Lucia Garcia,Auriculares,Accesorios,2,988.23,1976.46,Maritimo,Cancelado
