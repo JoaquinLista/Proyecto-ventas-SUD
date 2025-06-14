@@ -4,6 +4,11 @@
 #include <string>
 using namespace std;
 
+
+/**
+ * @brief struct de Ventas
+ *
+ */
 struct Venta {
     string id_venta;
     string fecha;
